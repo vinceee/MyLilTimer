@@ -1,0 +1,24 @@
+
+/* Class = "UIButton"; normalTitle = "Start / Reset"; ObjectID = "CPE-E1-6e7"; */
+"CPE-E1-6e7.normalTitle" = "Start / Reset";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "HPO-IT-BWI"; */
+"HPO-IT-BWI.text" = "0";
+
+/* Class = "UILabel"; text = "PauseOnSystemSleep (NSTimer)"; ObjectID = "LBX-4l-ISu"; */
+"LBX-4l-ISu.text" = "PauseOnSystemSleep (NSTimer)";
+
+/* Class = "UILabel"; text = "Hourglass"; ObjectID = "OD6-lb-Zcx"; */
+"OD6-lb-Zcx.text" = "Hourglass";
+
+/* Class = "UILabel"; text = "ObeySystemClockChanges"; ObjectID = "QyU-Ir-h9J"; */
+"QyU-Ir-h9J.text" = "ObeySystemClockChanges";
+
+/* Class = "UILabel"; text = "MyLilTimerBehavior…"; ObjectID = "TfL-iC-VdM"; */
+"TfL-iC-VdM.text" = "MyLilTimerBehavior…";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "qm0-4u-wP6"; */
+"qm0-4u-wP6.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "szI-Fg-tYJ"; */
+"szI-Fg-tYJ.text" = "0";

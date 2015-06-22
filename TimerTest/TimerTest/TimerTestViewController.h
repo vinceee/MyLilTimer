@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TimerTestViewController : UIViewController
+@interface TimerTestViewController : UIViewController<UITextFieldDelegate>
 
 - (IBAction)restartTimers:(id)sender;
 

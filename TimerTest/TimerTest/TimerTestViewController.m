@@ -33,7 +33,88 @@
     _numberFormatter = [[NSNumberFormatter alloc] init];
     _numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
     _numberFormatter.minimumFractionDigits = _numberFormatter.maximumFractionDigits = 1;
+    
+    //wos test self created textfield
+    int InLeft, InTop, InWidth, InFontSize;
+    InLeft = 100;
+    InTop = 300;
+    InWidth = 280;
+    InFontSize = 30;
+    
+    //register once
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNoify:) name:UIKeyboardWillShowNotification object:nil];
+    
+    CGRect AdjustFrame = CGRectMake(InLeft, InTop, InWidth, InFontSize);
+    UITextField* pTextFiled = [[UITextField alloc] initWithFrame:AdjustFrame];
+    pTextFiled.delegate =  self;
+    pTextFiled.font = [pTextFiled.font fontWithSize:InFontSize];
+    //pTextFiled.textColor = [UIColor whiteColor];
+    //pTextFiled.placeholder = @"I'm waiting";
+    //[pTextFiled setBackgroundColor:[UIColor grayColor]];
+    pTextFiled.autocorrectionType = UITextAutocorrectionTypeNo;
+    pTextFiled.keyboardType = UIKeyboardTypeDefault;
+    pTextFiled.returnKeyType = UIReturnKeyDone;
+    pTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
+    pTextFiled.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    pTextFiled.delegate = self;
+    
+    //NSString* TestLocStr = NSLocalizedString(@"TESTLan1", "Nothing");
+    NSString* TestLocStr = [NSString stringWithCString:"123" encoding:NSUTF8StringEncoding];
+
+    [self.view addSubview:pTextFiled];
+    //pTextFiled removef
+    //wos test end
 }
+
+- (void) MoveViewByKeywoard:(int)InOffset
+{
+    CGRect FrameSize = [[UIScreen mainScreen] bounds];
+
+    float movementDuration = 0.f;
+    if (InOffset < 0)//move up case
+    {
+        FrameSize.origin.y += InOffset;
+        movementDuration = 0.3f;
+    }
+    else
+    {
+        movementDuration = 0.1f;
+    }
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = FrameSize;
+    [UIView commitAnimations];
+}
+
+//record current focus text field widget's frame info
+static CGRect sCurrentEditingTextFieldFrame;
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    sCurrentEditingTextFieldFrame = textField.frame;
+    return YES;
+}
+
+-(void)keyboardWillShowNoify:(NSNotification*)aNotification
+{
+    //viewport size
+    CGRect FrameSize = [[UIScreen mainScreen] bounds];
+    //keyboard size
+    NSDictionary* info = [aNotification userInfo];
+    NSValue* KeyboardBounds = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardSize = [KeyboardBounds CGRectValue];
+    int ToBottomOffset = FrameSize.size.height - (sCurrentEditingTextFieldFrame.origin.y + sCurrentEditingTextFieldFrame.size.height);
+    ToBottomOffset -= keyboardSize.size.height;
+    [self MoveViewByKeywoard:ToBottomOffset];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    [self MoveViewByKeywoard:10];//give a positive value
+    return NO;
+}
+//wos textfield delegate end
 
 - (IBAction)restartTimers:(id)sender
 {

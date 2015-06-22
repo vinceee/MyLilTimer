@@ -12,5 +12,5 @@
 @interface TimerTestAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic, retain) UIAlertView* TestAlertView;
 @end

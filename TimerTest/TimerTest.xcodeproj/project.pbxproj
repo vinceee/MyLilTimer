@@ -33,6 +33,7 @@
 		0BDAF7EA188377D300574AF9 /* MyLilTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLilTimer.h; sourceTree = "<group>"; };
 		0BDAF7EB188377D300574AF9 /* MyLilTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLilTimer.m; sourceTree = "<group>"; };
 		0BDAF7ED188381B000574AF9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		68128BC41B29786A00AA1EFA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +191,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0BDAF7E8188375E900574AF9 /* Base */,
+				68128BC41B29786A00AA1EFA /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
